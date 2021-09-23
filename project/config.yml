@@ -9,13 +9,13 @@ modules:
     - git: https://github.com/topcoat-data/topcoat-public.git
       revision: main
 
-connections:
+#connections:
     # Configure your connection details here then add secret to Admin/Secrets
 
-    - name: bigquery
-      type: bigquery
-      dataset: mydataset
-      dbt: false
+    #- name: bigquery
+    #  type: bigquery
+    #  dataset: mydataset
+    #  dbt: false
 
     #- name: postgres
     #  type: postgres
@@ -41,6 +41,11 @@ layers:
 
 personas:
     default:
+        - url: ncaa_team
+          src: ncaa_team.html
+          title: NCAA Teams
+          icon_class: fas fa-basketball-ball
+
         - url: page1
           src: page1.html
           title: Page 1
@@ -50,3 +55,10 @@ personas:
           src: page2.html
           title: Page 2
           icon_class: fa-chart-bar
+
+develop:
+  defaults:
+    filters:
+      team_name: '49ers'
+      season: '2015'
+      year: '2020'

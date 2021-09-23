@@ -1,0 +1,43 @@
+<CustomerTheme>
+   
+	<team_name_filter slot=filters /> 
+	<season_filter slot=filters /> 
+	<div class="grid grid-cols-2 gap-4">
+		<num_three_points height=150 />
+		<num_free_throws height=150 />
+	</div>
+    <div class="grid grid-cols-2 gap-4">
+    	<num_total_loses height=150 />
+  		<num_total_wins height=150 />
+	 </div> 
+	<bar_wins_by_season />
+	<line_attendance />
+    <div class="col-span-2 text-2xl flex items-center">
+        <div>Scoring Stats </div>
+    </div> 
+
+    <team_scoring > 
+      In the {{ team_scoring[0].season.rendered }} season the {{ team_scoring[0].team_name.rendered }} 
+      played {{ team_scoring[0].games_played.rendered }} games. 
+      They scored an average of {{ team_scoring[0].average_points_per_game.rendered }} points per game. 
+    </team_scoring>
+
+    <player_ids class='col-span-2'>
+         
+         <div class="grid grid-cols-4 gap-4">
+            
+            <div v-for="player in player_ids"> {{ player.full_name.value }}
+                  <div v-if="player.points_made.value > 0">
+                  <player_loop  :filters="{ 'player_id':player.player_id.value }" height=100 />
+                  </div>
+                  <div v-else>
+                    No points made or attempted this season
+                  </div>
+               
+            </div>
+
+        </div>
+
+    </player_ids >
+   
+</CustomerTheme>
