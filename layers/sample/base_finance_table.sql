@@ -15,8 +15,10 @@ WHERE 1=1
 AND department != 'Marketing'
 {% endif %}
 AND CAST(year AS STRING) = CAST({{filter('year')}} AS STRING)
-{% if filter('department_search') != '' %}
-AND department LIKE '%{{ filter('department_search') }}%'
+{% if filter('department_search') == '' or filter('department_search') == None %}
+    -- do nothing
+{% else %}
+    AND lower(department) LIKE lower('%{{ filter('department_search') }}%')
 {% endif %}
 
 {{ column(
