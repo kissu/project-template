@@ -39,6 +39,9 @@ layers:
   personas: [ 'default' ]
   connection: <connection_name>
 
+  ncaa:
+    connection: tcbq
+
 personas:
     default:
         - url: ncaa_team
