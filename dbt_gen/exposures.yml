@@ -1,0 +1,211 @@
+version: 2
+
+exposures:
+
+  - name: ncaa_team
+    type: 'dashboard'
+    url: https://localhost/ncaa_team
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_three_points')
+      - ref('num_free_throws')
+      - ref('num_total_loses')
+      - ref('num_total_wins')
+      - ref('bar_wins_by_season')
+      - ref('line_attendance')
+      - ref('team_scoring')
+      - ref('player_ids')
+      - ref('player_loop')
+
+  - name: page1
+    type: 'dashboard'
+    url: https://localhost/page1
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('year_filter')
+      - ref('exclude_marketing_toggle')
+      - ref('department_search_filter')
+      - ref('base_finance_table')
+
+  - name: page2
+    type: 'dashboard'
+    url: https://localhost/page2
+    owner: 
+        email: konstantin@passionatepeople.io
+
+  - name: date_range_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/date_range_filter
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('date_range_filter')
+
+  - name: year_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/year_filter
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('year_filter')
+      - ref('seed_financial_data')
+
+  - name: exclude_marketing_toggle_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/exclude_marketing_toggle
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('exclude_marketing_toggle')
+
+  - name: department_search_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/department_search_filter
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('department_search_filter')
+
+  - name: seed_financial_data_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/seed_financial_data
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('seed_financial_data')
+
+  - name: base_finance_table_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/base_finance_table
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('exclude_marketing_toggle')
+      - ref('year_filter')
+      - ref('department_search_filter')
+      - ref('base_finance_table')
+      - ref('seed_financial_data')
+
+  - name: num_total_loses_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/num_total_loses
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_total_loses')
+      - ref('team_games_base')
+
+  - name: player_ids_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/player_ids
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('player_ids')
+
+  - name: player_loop_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/player_loop
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('season_filter')
+      - ref('player_loop')
+
+  - name: team_scoring_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/team_scoring
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('team_scoring')
+
+  - name: line_attendance_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/line_attendance
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('line_attendance')
+      - ref('team_games_base')
+
+  - name: num_total_wins_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/num_total_wins
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_total_wins')
+      - ref('team_games_base')
+
+  - name: bar_wins_by_season_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/bar_wins_by_season
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('bar_wins_by_season')
+
+  - name: num_three_points_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/num_three_points
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_three_points')
+      - ref('team_games_base')
+
+  - name: num_free_throws_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/num_free_throws
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_free_throws')
+      - ref('team_games_base')
+
+  - name: season_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/season_filter
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('season_filter')
+
+  - name: team_name_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/team_name_filter
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+
+  - name: team_games_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/team_games_base
+    owner: 
+        email: konstantin@passionatepeople.io
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('team_games_base')
+
